@@ -1,9 +1,10 @@
 
 /**
- * Write a description of class DatabaseCustomer here.
+ * Ini adalah Class untuk database customer yang memesan hotel bisa ditambahkan
+ * atau dikurangi
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Anggoro Gagah Nugroho
+ * @version 1/3/2018
  */
 public class DatabaseCustomer
 {
@@ -17,7 +18,7 @@ public class DatabaseCustomer
    
     {
         
-        return false;
+        return false;//untuk menambah customer
     }
     public boolean removeCustomer(int id)
     {

@@ -1,9 +1,10 @@
 
 /**
- * Write a description of class DatabasePesanan here.
+ * Ini adalah Class untuk database customer yang memesan hotel bisa ditambahkan 
+ * atau dikurangi 
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @author Anggoro Gagah Nugroho
+ * @version 1/3/2018
  */
 public class DatabasePesanan
 {
@@ -22,7 +23,7 @@ public class DatabasePesanan
     }
     public boolean removePesanan(Pesanan pesan)
     {
-        return false;
+        return false;//untuk menghapus pesanan
     }
     public Pesanan getPesanan(Customer cust)
     {
