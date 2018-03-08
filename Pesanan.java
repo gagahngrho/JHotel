@@ -14,6 +14,7 @@ public class Pesanan
     private String jenis_kamar;
     private boolean isDiproses;
     private boolean isSelesai;
+    private Room kamar;
 
     
   
@@ -110,6 +111,15 @@ public class Pesanan
     {
         isSelesai=diproses;
     }
+    public Room getRoom(){
+        return kamar;
+    }
+    public void setRoom(Room kamar){
+        this.kamar = kamar;
+    }
+}
+
+    
     
         
 
@@ -121,4 +131,4 @@ public class Pesanan
      * @return    the sum of x and y
      */
     
-}
+
