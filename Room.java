@@ -1,14 +1,13 @@
 
 /**
- * Write a description of class Room here.
+ * Class untuk objek objek Room
  *
  * @author Anggoro Gagah Nugroho
- * @version 8/3/18
- * @param biaya
- * @param pelanggan 
+ * @version 8/3/2018
  */
 public class Room
 {
+    // instance variables
     private Hotel hotel;
     private int id;
     private String nomor_kamar;
@@ -17,93 +16,195 @@ public class Room
     private double dailyTariff;
     private StatusKamar status_kamar;
     private Pesanan pesan;
-
+    
     /**
      * Constructor for objects of class Room
      */
-    public Hotel getHotel()
+    public Room(Hotel hotel,String nomor_kamar,boolean isAvailable,Customer customer, double dailyTariff, StatusKamar status_kamar)
     {
-        // initialise instance variables
-        return hotel;
+        this.hotel = hotel;
+        this.nomor_kamar = nomor_kamar;
+        this.isAvailable = isAvailable;
+        this.customer = customer;
+        this.dailyTariff = dailyTariff;
+        this.status_kamar = status_kamar;
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Metode Accessor untuk Hotel
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return Object Hotel
+     */
+    public Hotel getHotel()
+    {
+        return hotel;
+    }
+    
+    /**
+     * Metode Accessor untuk ID
+     *
+     * @return ID
      */
     public int getID()
     {
-        // put your code here
         return id;
     }
     
+    /**
+     * Method Accessor untuk Nomor Kamar
+     *
+     * @return Nomor Kamar
+     */
     public String getNomorKamar()
     {
-    return nomor_kamar;
+        return nomor_kamar;
     }
     
-    public boolean getStatusAvailable()
+    /**
+     * Method Accessor untuk Status Available
+     *
+     * @return Status Availability
+     */
+    public boolean StatusAvailable()
     {
         return isAvailable;
     }
+    
+    /**
+     * Method Accessor untuk Customer
+     *
+     * @return Object Customer
+     */
     public Customer getCustomer()
     {
         return customer;
     }
+    
+    /**
+     * Method Accessor untuk Tarif perhari
+     *
+     * @return Tarif perhari
+     */
     public double getDailyTariff()
     {
         return dailyTariff;
     }
+    
+    /**
+     * Method Accessor untuk Status Kamar
+     *
+     * @return Status kamar berdasarkan enum
+     */
     public StatusKamar getStatusKamar()
-    {    
-    return status_kamar;
+    {
+        return status_kamar;
     }
+    
+    /**
+     * Method Accessor untuk Pesanan
+     *
+     * @return Pesanan
+     */
     public Pesanan getPesanan()
     {
         return pesan;
     }
+    
+    /**
+     * Method Mutator untuk Hotel
+     *
+     * @param hotel object hotel
+     */
     public void setHotel(Hotel hotel)
     {
         this.hotel = hotel;
     }
+    
+    /**
+     * Method Mutator untuk ID
+     *
+     * @param id integer id
+     */
     public void setID(int id)
     {
         this.id = id;
     }
-    public void setNomorKamar(String nomor_kamar)
+    
+    /**
+     * Method Mutator untuk NomorKamar
+     *
+     * @param nomor_kamar untuk nomorkamar
+     */
+    public void seNomorKamar(String nomor_kamar)
     {
         this.nomor_kamar = nomor_kamar;
     }
-    public void setStatusKamarAvailable(boolean isAvailable){
+    
+    /**
+     * Method Mutator untuk Status Available
+     *
+     * @param isAvailable status avaibilitas kamar
+     */
+    public void setStatusAvailable(boolean isAvailable)
+    {
         this.isAvailable = isAvailable;
     }
-    public void setCustomer(Customer customer){
+    
+    /**
+     * Method Mutator untuk Customer
+     *
+     * @param customer mengset customer
+     */
+    public void setCustomer(Customer customer)
+    {
         this.customer = customer;
     }
-    public void setDailyTariff(double dailytariff){
-        this.dailyTariff = dailyTariff;
+    
+    /**
+     * Method Mutator untuk DailyTariff
+     *
+     * @param dailytariff untuk set daily tariff
+     */
+    public void setDailyTariff(double dailytariff)
+    {
+        this.dailyTariff = dailytariff;
     }
-    public void setStatusKamar(StatusKamar status_kamar){
+    
+    /**
+     * Method Mutator untuk Status Kamar
+     *
+     * @param status_kamar untuk mengganti status kamar
+     */
+    public void setStatusKamar(StatusKamar status_kamar)
+    {
         this.status_kamar = status_kamar;
     }
-    public void setPesanan(Pesanan pesan){
+    
+    /**
+     * Method Mutator untuk Pesanan
+     *
+     * @param pesan untuk mengganti Object Pesanan
+     */
+    public void setPesanan(Pesanan pesan)
+    {
         this.pesan = pesan;
     }
-    public void printData(){
-        System.out.println(hotel);
-        System.out.println(id);
+    
+    /**
+     * Method untuk mengprint semua data pada class
+     * 
+     * 
+     */
+    
+    public void printData()
+    {
+        System.out.println(getHotel().getNama());
         System.out.println(nomor_kamar);
         System.out.println(isAvailable);
-        System.out.println(customer);
+        getCustomer().printData();
         System.out.println(dailyTariff);
-        System.out.println(status_kamar);
-        System.out.println(pesan);
+        System.out.println(status_kamar.toString());
     }
- 
+    
+    
 }
-    
-    
-
-

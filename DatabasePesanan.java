@@ -1,48 +1,55 @@
-
-/**
- * Ini adalah Class untuk database customer yang memesan hotel bisa ditambahkan 
- * atau dikurangi 
+ /**
+ * Class Database Pesanan 
  *
  * @author Anggoro Gagah Nugroho
  * @version 1/3/2018
  */
 public class DatabasePesanan
 {
-    // instance variables - replace the example below with your own
-    private String[] list_pesanan;
+   
+    private static String[] list_pesanan;
     
-       
-
     /**
-     * Constructor for objects of class DatabasePesanan
+     * Adalah metode yang akan digunakan pada link database
+     * dengan Pesanan untuk menambah Pesanan kepada database
      */
-    public boolean addPesanan(Pesanan baru)
-  
+    public static boolean addPesanan(Pesanan baru)
     {
         return false;
     }
-    public boolean removePesanan(Pesanan pesan)
-    {
-        return false;//untuk menghapus pesanan
-    }
-    public Pesanan getPesanan(Customer cust)
-    {
-        return null;
-    }
-    public String[] getPesananDatabase()
-    {
-        return null;
-    }
-    public void pesananDibatalkan(Pesanan pesan)
-    {
-    }
-        
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
     
+    /**
+     * Adalah metode yang akan digunakan pada link database
+     * dengan Pesanan untuk menghapus Pesanan kepada database
+     */
+    public static boolean removePesanan(Pesanan pesan)
+    {
+        return false;
+    }
+    
+    /**
+     * Adalah metode yang akan digunakan pada link database
+     * dengan Pesanan untuk mendapatkan pesanan bergantung oada customer
+     */
+    public static Pesanan getPesanan(Customer cust)
+    {
+        return null;
+    }
+    
+    /**
+     * Adalah metode yang akan digunakan pada link database
+     * dengan Pesanan untuk mendapatkan database pesanan
+     */
+    public static String[] getPesananDatabase()
+    {
+        return null;
+    }
+    
+    /**
+     * Adalah metode yang akan digunakan pada link database
+     * dengan Pesanan untuk meembatalkan pesanan yang ada pada database
+     */
+    public static void pesananDibatalkan(Pesanan pesan)
+    {
+    }
 }

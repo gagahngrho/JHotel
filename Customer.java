@@ -1,88 +1,79 @@
-
 /**
- * Ini adalah Class digunakan untuk melihat ataupun mengeset data customer 
+ * Class Customer
  *
  * @author Anggoro Gagah Nugroho
  * @version 1/3/2018
  */
 public class Customer
 {
-    // instance variables - replace the example below with your own
+    
     protected int id;
     protected String nama;
-
+    
+   
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  int id,string nama
+     * Adalah Constructor dari Class Customer
      * 
+     * @param id adalah parameter untuk menentukan id tiap customer
+     * @param id adalah penentuan nama untuk Customer
      */
-    public void Customer(int id, String nama)
- 
+    public Customer(int id, String nama)
     {
-        this.id=id;
-        this.nama=nama;
-        
+        this.id = id;
+        this.nama = nama;
     }
-    /**
-     * Digunakan untuk mendapatkan ID yang telah di set
-     *
+    
+    //Methode Getter (Accessor) untuk class
+     /**
+     * Ini adalah Methode untuk mendapatkan ID dari objek
      * 
-     * @return id type int  
+     * @return id adalah id yang di dapatkan
      */
     public int getID()
     {
         return id;
     }
+    
     /**
-     * Digunakan untuk mendapatkan nama yang telah di set
-     *
+     * Ini adalah Methode untuk mendapatkan nama dari objek
      * 
-     * @return    nama type String
+     * @return nama adalah nama yang di dapatkan
      */
     public String getNama()
     {
         return nama;
     }
+    
+    //Methode Setter (Mutator) untuk class
     /**
-     * Digunakan untuk mengeset ID
-     *
-     * @param  int id
+     * Ini adalah Methode mutator untuk set nilai id
      * 
+     * @param id adalah id yang dimasukkan
      */
     public void setID(int id)
     {
-        this.id=id; //bisa dipakai untuk mengeset ID
+        this.id = id;
     }
+    
     /**
-     * Digunakan untuk mengeset nama
-     *
-     * @param String nama
+     * Ini adalah Methode mutator untuk set nama
      * 
+     * @param nama adalah nama Customer yang dimasukkan
      */
     public void setNama(String nama)
     {
-        this.nama=nama;
+        this.nama = nama;
     }
-    /**
-     * Digunakan untuk menampilkan nama
-     *
-     * @param  String nama
-     * 
-     */
-    public void printData(String nama)
-    {
-        System.out.print(nama);
-    }
-        
-
-        
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
+    
    
+    /**
+     * adalah Metod yang akan digunakan untuk mengprint data.
+     */
+    public void printData()
+    {
+        System.out.println(id);
+        System.out.println(nama);
+    }
+    
+
 }

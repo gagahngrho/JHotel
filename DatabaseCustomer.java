@@ -1,39 +1,39 @@
-
-/**
- * Ini adalah Class untuk database customer yang memesan hotel bisa ditambahkan
- * atau dikurangi
+ /**
+ * Class DatabaseCustomer 
  *
  * @author Anggoro Gagah Nugroho
  * @version 1/3/2018
  */
 public class DatabaseCustomer
 {
-    // instance variables - replace the example below with your own
-    private String[] list_customer;
-
+    
+    private static String[] list_customer;
+    
+    
     /**
-     * Constructor for objects of class DatabaseCustomer
+     * Adalah method yang akan digunakan pada link database
+     * dengan customer untuk menambah customer kepada database
      */
-    public boolean addCustomer(Customer baru)
-   
+    public static boolean addCustomer(Customer baru)
     {
-        
-        return false;//untuk menambah customer
+     return false;
     }
-    public boolean removeCustomer(int id)
+    
+    /**
+     * Adalah method yang akan digunakan pada link database
+     * dengan customer untuk menghapus customer kepada database
+     */
+    public static boolean removeCustomer(int id)
     {
         return false;
     }
-    public String[] getCustomerDatabase()
+    
+     /**
+     * Adalah method yang akan digunakan pada link database
+     * dengan customer untuk mendapatkan databasecustomer
+     */
+    public static String[] getCustomerDatabase()
     {
         return null;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
-     */
-    
 }

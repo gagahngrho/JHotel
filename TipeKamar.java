@@ -1,28 +1,33 @@
 
 /**
- * Enumeration class TipeKamar - write a description of the enum class here
+ * TipeKamar untuk memilih dan membatasi tipe kamar 
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Anggoro Gagah Nugroho
+ * @version 3/8/2018
  */
 public enum TipeKamar
 {
-    Single("Single"), Double("Double"), Premium("Premium");
+    SINGLE("Single"),DOUBLE("Double"),PREMIUM("Premium");
     
-    public final String tipe;
+    private final String type;
     
-    TipeKamar (String tipe) {
-       this.tipe = tipe;
-       
-    }  
-       public String tipe() {
-           return tipe;
-        }
-        
+    /**
+     * Constructor TipeKamar
+     * 
+     * @param type adalah tipe kamar dalam string
+     */
+    TipeKamar(String type)
+    {
+        this.type=type;
     }
     
-
-
-
-
-
+    /**
+     * toString() - Method pengambilan String
+     * 
+     * @return type mengembalikkan tipe kamar sebagai string
+     */
+    public String toString()
+    {
+        return this.type;
+    }
+}

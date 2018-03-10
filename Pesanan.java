@@ -1,35 +1,39 @@
 
-/**
- * Ini adalah Class yang digunakan untuk memesan hotel
+ /**
+ * Class Pesanan 
  *
  * @author Anggoro Gagah Nugroho
  * @version 1/3/2018
  */
 public class Pesanan
 {
-    // instance variables - replace the example below with your own
+    
     private double biaya;
     private Customer pelanggan;
     private String nama_pelanggan;
-    private String jenis_kamar;
+    private TipeKamar tipe_kamar;
     private boolean isDiproses;
     private boolean isSelesai;
     private Room kamar;
 
     
-  
+    /**
+     * Constructor dari Class Pesanan
+     * 
+     * @param  parameter menentukan harga pesanan
+     * @param pelanggan adalah parameter yang akan menunjukan pelanggan yang memesan
+     */
     public Pesanan(double biaya, Customer pelanggan)
     {
-      this.biaya=biaya;
-      this.pelanggan=pelanggan;
-        
+        this.biaya = biaya;
+        this.pelanggan = pelanggan;
     }
     
-    /**
-     * Digunakan untuk mendapatkan biaya dari set
-     *
+    //Methode Getter (Accessor) untuk class
+     /**
+     * Methode untuk mendapatkan biaya dari objek class pesanan
      * 
-     * @return  biaya type double
+     * @return biaya mendapatkan biaya bayar dari pesanan
      */
     public double getBiaya()
     {
@@ -37,53 +41,76 @@ public class Pesanan
     }
     
     /**
-     * Digunakan untuk mendapatkan pelanggan dari set
+     * Accessor for objects of class Pesanan
+     * untuk mendapatkan nilai pelanggan
      * 
-     * @return  pelanggan type Customer
+     * @return pelanggan
      */
-    public Customer getPelanggan()
-    {
+    public Customer getPelanggan(){
         return pelanggan;
     }
     
     /**
-     * Digunakan untuk mendapatkan status 
-     *
-     * @param  y  a sample parameter for a method yang diproses
-     * @return    isDiproses type boolean
+     * Ini merupakan Methode untuk mendapatkan Nama pelanggan dari objek class pesanan
+     * 
+     * @return nama_pelanggan mengembalikkan variabel nama_pelanggan objek class pesanan
      */
-    public boolean getStatusDiproses()
-    {
+    public String getNamaPelanggan(){
+        return nama_pelanggan;
+    }
+    
+    /**
+     * Ini merupakan Methode untuk mendapatkan tipe kamar dari objek class pesanan
+     * 
+     * @return tipe_kamar mengembalikkan variabel tipe_kamar objek class pesanan
+     */
+    public TipeKamar getTipeKamar(){
+        return tipe_kamar;
+    }
+    
+    /**
+     * Accessor for objects of class Pesanan
+     * untuk mendapatkan nilai status diproses
+     * 
+     * @return isDiproses
+     */
+    public boolean getStatusDiproses(){
         return isDiproses;
     }
     
     /**
-     * Digunakan untuk mendapatkan status yang telah selesai
-     *
+     * Ini merupakan Methode untuk mendapatkan status proses selesai dari objek class pesanan
      * 
-     * @return    isSelesai type boolean
+     * @return isSelesai mengembalikkan variabel isSelesai objek class pesanan
      */
-    public boolean getStatusSelesai()
-    {
+    public boolean getStatusSelesai(){
         return isSelesai;
     }
     
     /**
-     *Digunakan untuk mengeset biaya
-     *
-     * @param  double biaya
+     * Ini merupakan Methode untuk mendapatkan object room dari object ini
      * 
+     * @return kamar merupakan kamar yang akan dikembalikkan
+     */
+    public Room getRoom(){
+        return kamar;
+    }
+    
+
+    /**
+     * Ini merupakan Methode mutator untuk set nilai biaya
+     * 
+     * @param biaya merupakan variabel yang akan di masukkan pada variable biaya pada Class
      */
     public void setBiaya(double biaya)
     {
-        this.biaya = biaya;
+        this.biaya=biaya;
     }
     
     /**
-     * Digunakan untuk mengeset pelanggan
-     *
-     * @param Customer baru
+     * Ini merupakan Methode mutator untuk set nilai pelanggan
      * 
+     * @param baru merupakan variabel yang akan di masukkan pada variable peanggan pada Class
      */
     public void setPelanggan(Customer baru)
     {
@@ -91,44 +118,64 @@ public class Pesanan
     }
     
     /**
-     * Digunakan untuk mengeset status yang diproses
-     *
-     * @param  boolean diproses
+     * Ini merupakan Methode mutator untuk set nilai nama Pelanggan 
      * 
+     * @param nama_pelanggan merupakan variabel yang akan di masukkan pada variable nama_pelanggan pada Class
+     */
+    public void setNamaPelanggan(String nama_pelanggan)
+    {
+        this.nama_pelanggan=nama_pelanggan;
+    }
+    
+    /**
+     * Ini merupakan Methode mutator untuk set nilai nama Tipe Kamar 
+     * 
+     * @param tipe_kamar merupakan variabel yang akan di masukkan pada variable tipe_kamar pada Class
+     */
+    public void setTipeKamar(TipeKamar tipe_kamar)
+    {
+        this.tipe_kamar=tipe_kamar;
+    }
+    
+    /**
+     * Ini merupakan Methode mutator untuk set nilai isDiproses
+     * 
+     * @param diproses merupakan variabel yang akan di masukkan pada variable isDiproses pada Class
      */
     public void setStatusDiproses(boolean diproses)
     {
-        isDiproses=diproses;
+        isDiproses = diproses;
     }
     
     /**
-     * Digunakan untuk mengeset status yang selesai
-     *
-     * @param  boolean diproses
+     * Ini merupakan Methode mutator untuk set nilai isSelesai
      * 
+     * @param diproses merupakan variabel yang akan di masukkan pada variable isSelesai pada Class
      */
     public void setStatusSelesai(boolean diproses)
     {
-        isSelesai=diproses;
+        isSelesai = diproses;
     }
-    public Room getRoom(){
-        return kamar;
-    }
-    public void setRoom(Room kamar){
+    
+    /**
+     * Ini merupakan Methode mutator untuk set Room
+     * 
+     * @param kamar merupakan Object yang akan di pasangkan pada object pesanan
+     */
+    public void setRoom(Room kamar)
+    {
         this.kamar = kamar;
     }
-}
-
     
     
-        
-
-
     /**
-     * An example of a method - replace this comment with your own
-     *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * Merupakan Metode yang akan digunakan untuk mengprint data.
      */
-    
-
+    public void printData()
+    {
+        System.out.println("Nama Pelanggan Pesanan = " + getPelanggan().getNama());
+        System.out.println("Tipe Kamar dipesan = " + tipe_kamar);
+        System.out.println("Status Proses pesanan = " + isDiproses);
+        System.out.println("Status Selesai pesanan = " + isSelesai);
+    }
+}

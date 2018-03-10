@@ -1,23 +1,33 @@
 
 /**
- * Enumeration class StatusKamar - write a description of the enum class here
+ * Enumeration class TipeKamar - Membatasi tipe kamar
  *
- * @author (your name here)
- * @version (version number or date here)
+ * @author Anggoro Gagah Nugroho
+ * @version 3/8/2018
  */
 public enum StatusKamar
 {
-    Booked("Booked"), Processed("Processed"), Vacant("Vacant");
+    BOOKED("Booked"),PROCESSED("Processed"),VACANT("Vacant");
     
-    public final String status;
+    private final String status;
     
-    StatusKamar(String status) {
-        
-        this.status = status;
-}
-
-public String status() {
+    /**
+     * Constructor StatusKamar
+     * 
+     * @param type adalah status dalam string
+     */
+    StatusKamar(String status)
+    {
+        this.status=status;
+    }
     
-    return status;
-}
+    /**
+     * toString() - Method pengambilan String
+     * 
+     * @return type mengembalikkan status kamar sebagai string
+     */
+    public String toString()
+    {
+        return this.status;
+    }
 }
