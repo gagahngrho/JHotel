@@ -9,9 +9,8 @@ public class Pesanan
 {
     
     private double biaya;
+    private double jumlahHari;
     private Customer pelanggan;
-    private String nama_pelanggan;
-    private TipeKamar tipe_kamar;
     private boolean isDiproses;
     private boolean isSelesai;
     private Room kamar;
@@ -23,10 +22,12 @@ public class Pesanan
      * @param  parameter menentukan harga pesanan
      * @param pelanggan adalah parameter yang akan menunjukan pelanggan yang memesan
      */
-    public Pesanan(double biaya, Customer pelanggan)
+    public Pesanan(double jumlahHari, Customer pelanggan, Room kamar)
     {
-        this.biaya = biaya;
+        this.jumlahHari = jumlahHari;
         this.pelanggan = pelanggan;
+        this.kamar = kamar;
+        biaya = kamar.getDailyTariff() * jumlahHari;
     }
     
     //Methode Getter (Accessor) untuk class
@@ -40,6 +41,10 @@ public class Pesanan
         return biaya;
     }
     
+    public double getjumlahHari()
+    {
+        return jumlahHari;
+    }
     /**
      * Accessor for objects of class Pesanan
      * untuk mendapatkan nilai pelanggan
@@ -49,24 +54,7 @@ public class Pesanan
     public Customer getPelanggan(){
         return pelanggan;
     }
-    
-    /**
-     * Ini merupakan Methode untuk mendapatkan Nama pelanggan dari objek class pesanan
-     * 
-     * @return nama_pelanggan mengembalikkan variabel nama_pelanggan objek class pesanan
-     */
-    public String getNamaPelanggan(){
-        return nama_pelanggan;
-    }
-    
-    /**
-     * Ini merupakan Methode untuk mendapatkan tipe kamar dari objek class pesanan
-     * 
-     * @return tipe_kamar mengembalikkan variabel tipe_kamar objek class pesanan
-     */
-    public TipeKamar getTipeKamar(){
-        return tipe_kamar;
-    }
+   
     
     /**
      * Accessor for objects of class Pesanan
@@ -102,9 +90,14 @@ public class Pesanan
      * 
      * @param biaya merupakan variabel yang akan di masukkan pada variable biaya pada Class
      */
-    public void setBiaya(double biaya)
+    public void setBiaya()
     {
-        this.biaya=biaya;
+        biaya = kamar.getDailyTariff() * jumlahHari;
+    }
+    
+    public void setJumlahHari(double jumlahHari)
+    {
+        this.jumlahHari=jumlahHari;
     }
     
     /**
@@ -117,25 +110,6 @@ public class Pesanan
         pelanggan=baru;
     }
     
-    /**
-     * Ini merupakan Methode mutator untuk set nilai nama Pelanggan 
-     * 
-     * @param nama_pelanggan merupakan variabel yang akan di masukkan pada variable nama_pelanggan pada Class
-     */
-    public void setNamaPelanggan(String nama_pelanggan)
-    {
-        this.nama_pelanggan=nama_pelanggan;
-    }
-    
-    /**
-     * Ini merupakan Methode mutator untuk set nilai nama Tipe Kamar 
-     * 
-     * @param tipe_kamar merupakan variabel yang akan di masukkan pada variable tipe_kamar pada Class
-     */
-    public void setTipeKamar(TipeKamar tipe_kamar)
-    {
-        this.tipe_kamar=tipe_kamar;
-    }
     
     /**
      * Ini merupakan Methode mutator untuk set nilai isDiproses
@@ -174,8 +148,10 @@ public class Pesanan
     public void printData()
     {
         System.out.println("Nama Pelanggan Pesanan = " + getPelanggan().getNama());
-        System.out.println("Tipe Kamar dipesan = " + tipe_kamar);
         System.out.println("Status Proses pesanan = " + isDiproses);
         System.out.println("Status Selesai pesanan = " + isSelesai);
+        System.out.println("Jumlah Hari = " + jumlahHari);
+        System.out.println("Jumlah Biaya = " + biaya);
+       
     }
 }
