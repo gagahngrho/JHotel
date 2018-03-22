@@ -82,7 +82,10 @@ public class Lokasi
     public void setDeskripsi(String deskripsi){
         deskripsiLokasi = deskripsi;
     }
-    
+     public String toString()
+    {
+        return null;
+    }
     
    
     /**

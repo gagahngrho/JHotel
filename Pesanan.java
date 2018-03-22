@@ -5,6 +5,8 @@
  * @author Anggoro Gagah Nugroho
  * @version 1/3/2018
  */
+import java.util.*;
+
 public class Pesanan
 {
     
@@ -14,6 +16,7 @@ public class Pesanan
     private boolean isDiproses;
     private boolean isSelesai;
     private Room kamar;
+    private Date tanggalPesan;
 
     
     /**
@@ -83,6 +86,9 @@ public class Pesanan
     public Room getRoom(){
         return kamar;
     }
+    public Date getDate(){
+        return tanggalPesan;
+    }
     
 
     /**
@@ -140,18 +146,25 @@ public class Pesanan
     {
         this.kamar = kamar;
     }
+    public void setDate(Date tanggalPesan)
+    {
+        this.tanggalPesan = tanggalPesan;
+    }
+    
+    
     
     
     /**
      * Merupakan Metode yang akan digunakan untuk mengprint data.
      */
-    public void printData()
+    public String toString()
     {
         System.out.println("Nama Pelanggan Pesanan = " + getPelanggan().getNama());
         System.out.println("Status Proses pesanan = " + isDiproses);
         System.out.println("Status Selesai pesanan = " + isSelesai);
         System.out.println("Jumlah Hari = " + jumlahHari);
         System.out.println("Jumlah Biaya = " + biaya);
+        return null;
        
     }
 }

@@ -7,7 +7,7 @@
 public class DatabasePesanan
 {
    
-    private static String[] list_pesanan;
+    private static Pesanan list_pesanan;
     
     /**
      * Adalah metode yang akan digunakan pada link database

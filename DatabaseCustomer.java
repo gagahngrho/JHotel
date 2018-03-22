@@ -7,7 +7,7 @@
 public class DatabaseCustomer
 {
     
-    private static String[] list_customer;
+    private static Customer list_customer;
     
     
     /**

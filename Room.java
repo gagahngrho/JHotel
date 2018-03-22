@@ -154,23 +154,28 @@ public abstract class Room
     {
         this.pesan = pesan;
     }
-    
-    
-    /**
-     * Method untuk mengprint semua data pada class
-     * 
-     * 
-     */
-    
-    public void printData()
+     public String toString()
+   
     {
-        System.out.println(getHotel().getNama());
-        System.out.println(getTipeKamar());
-        System.out.println(nomor_kamar);
-        System.out.println(isAvailable);
-        System.out.println(dailyTariff);
-        System.out.println(status_kamar.toString());
+        if (isAvailable = true)
+        {
+            System.out.println("Nama Hotel : " + hotel.getNama());
+            System.out.println("Tipe Kamar : " + getTipeKamar());
+            System.out.println("Harga Kamar : " + dailyTariff);
+            System.out.println("Status Kamar : " + status_kamar); 
+      
     }
-    
-    
+    else
+    {
+         System.out.println("Nama Hotel : " + hotel.getNama());
+         System.out.println("Tipe Kamar : " + getTipeKamar());
+         System.out.println("Harga Kamar : " + dailyTariff);
+         System.out.println("Status Kamar : " + status_kamar); 
+         System.out.println("Pelanggan : " + pesan.getPelanggan().getNama()); 
+        
+        }
+        
+        return null;
+    }
 }
+

@@ -4,11 +4,15 @@
  * @author Anggoro Gagah Nugroho
  * @version 1/3/2018
  */
+import java.util.*;
+
 public class Customer
 {
-    
+  
     protected int id;
     protected String nama;
+    protected String email;
+    protected Date dob;
     
    
     /**
@@ -17,10 +21,18 @@ public class Customer
      * @param id adalah parameter untuk menentukan id tiap customer
      * @param id adalah penentuan nama untuk Customer
      */
-    public Customer(int id, String nama)
+    public Customer(int id, String nama, int tanggal, int bulan, int tahun)
     {
         this.id = id;
         this.nama = nama;
+        dob = new GregorianCalendar(tahun,bulan,tanggal).getTime();
+    }
+    
+       public Customer(int id, String nama, Date dob)
+    {
+        this.id = id;
+        this.nama = nama;
+        this.dob = dob;
     }
     
     //Methode Getter (Accessor) untuk class
@@ -43,6 +55,14 @@ public class Customer
     {
         return nama;
     }
+    public String getEmail()
+    {
+        return email;
+    }
+    public Date getDOB()
+    {
+        return dob;
+    }
     
     //Methode Setter (Mutator) untuk class
     /**
@@ -64,16 +84,42 @@ public class Customer
     {
         this.nama = nama;
     }
-    
-   
-    /**
-     * adalah Metod yang akan digunakan untuk mengprint data.
-     */
-    public void printData()
+    public void setEmail(String email)
     {
-        System.out.println(id);
-        System.out.println(nama);
+       if (email.matches("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+        + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$")){
+            System.out.println("Email valid");
+            this.email = email;
+        }
+        else {
+            System.out.println("Email tidak valid");
+        }
     }
-    
+     public void setDOB(Date dob)
+    {
+        this.dob = dob;
+    }
 
+    
+    
+   public String toString()
+   { 
+       if(DatabasePesanan.getPesanan() = null)
+       {
+           System.out.println("Customer ID : " + id);
+           System.out.println("Name : " + nama);
+           System.out.println("E-Mail : " + email);
+           System.out.println("Date of Birth : " + dob);
+        }
+        else
+        {
+           System.out.println("Customer ID : " + id);
+           System.out.println("Name : " + nama);
+           System.out.println("E-Mail : " + email);
+           System.out.println("Date of Birth : " + dob);
+           System.out.println("Booking order is in progress");
+        }
+        
+        return null;
+           
 }

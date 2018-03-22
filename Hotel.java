@@ -82,6 +82,11 @@ public class Hotel
     public void setBintang(int bintang){
         this.bintang=bintang;
     }
+     public String toString()
+    {
+        return null;
+    }
+    
     
   
     /**
