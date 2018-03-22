@@ -159,23 +159,23 @@ public abstract class Room
     {
         if (isAvailable = true)
         {
-            System.out.println("Nama Hotel : " + hotel.getNama());
-            System.out.println("Tipe Kamar : " + getTipeKamar());
-            System.out.println("Harga Kamar : " + dailyTariff);
-            System.out.println("Status Kamar : " + status_kamar); 
+            return ("Nama Hotel : " + hotel.getNama() 
+            +"Tipe Kamar : " + getTipeKamar()
+            +"Harga Kamar : " + dailyTariff
+            + "Status Kamar : " + status_kamar);
       
     }
     else
     {
-         System.out.println("Nama Hotel : " + hotel.getNama());
-         System.out.println("Tipe Kamar : " + getTipeKamar());
-         System.out.println("Harga Kamar : " + dailyTariff);
-         System.out.println("Status Kamar : " + status_kamar); 
-         System.out.println("Pelanggan : " + pesan.getPelanggan().getNama()); 
+          return ("Nama Hotel : " + hotel.getNama() 
+            +"Tipe Kamar : " + getTipeKamar()
+            +"Harga Kamar : " + dailyTariff
+            + "Status Kamar : " + status_kamar 
+         + "Pelanggan : " + pesan.getPelanggan().getNama());
         
         }
         
-        return null;
+        
     }
 }
 

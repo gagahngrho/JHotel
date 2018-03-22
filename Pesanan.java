@@ -6,6 +6,7 @@
  * @version 1/3/2018
  */
 import java.util.*;
+import java.text.*;
 
 public class Pesanan
 {
@@ -18,6 +19,7 @@ public class Pesanan
     private Room kamar;
     private Date tanggalPesan;
 
+  
     
     /**
      * Constructor dari Class Pesanan
@@ -25,11 +27,22 @@ public class Pesanan
      * @param  parameter menentukan harga pesanan
      * @param pelanggan adalah parameter yang akan menunjukan pelanggan yang memesan
      */
-    public Pesanan(double jumlahHari, Customer pelanggan, Room kamar)
+    public Pesanan(double jumlahHari, Customer pelanggan, Room kamar, int hari, int bulan, int tahun)
     {
         this.jumlahHari = jumlahHari;
         this.pelanggan = pelanggan;
         this.kamar = kamar;
+        tanggalPesan = new GregorianCalendar(tahun,bulan-1,hari).getTime();
+        biaya = kamar.getDailyTariff() * jumlahHari;
+    }
+    
+      public Pesanan(double jumlahHari, Customer pelanggan, Room kamar, Date tanggalPesan)
+    {
+        this.jumlahHari = jumlahHari;
+        this.pelanggan = pelanggan;
+        this.kamar = kamar;
+        this.tanggalPesan = tanggalPesan;
+        this.tanggalPesan.setMonth(tanggalPesan.getMonth()-1);
         biaya = kamar.getDailyTariff() * jumlahHari;
     }
     
@@ -87,6 +100,11 @@ public class Pesanan
         return kamar;
     }
     public Date getDate(){
+        
+        SimpleDateFormat formatdob = new SimpleDateFormat("dd MMMMMMMMMM yyyy");
+        System.out.println("DOB: " + formatdob.format(tanggalPesan));
+        System.out.printf("%s %te %tB %tY", "DOB: ", tanggalPesan, tanggalPesan, tanggalPesan, tanggalPesan);
+        
         return tanggalPesan;
     }
     

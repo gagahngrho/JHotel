@@ -1,8 +1,5 @@
 #BlueJ class context
 comment0.target=JHotel
-comment0.text=\r\n\ Class\ Hotel\r\n\r\n\ @author\ Anggoro\ Gagah\ Nugroho\r\n\ @version\ 1/3/2018\r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
-comment2.params=
-comment2.target=JHotel()
-numComments=3
+numComments=2

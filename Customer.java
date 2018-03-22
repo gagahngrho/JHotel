@@ -5,6 +5,7 @@
  * @version 1/3/2018
  */
 import java.util.*;
+import java.text.*;
 
 public class Customer
 {
@@ -13,6 +14,8 @@ public class Customer
     protected String nama;
     protected String email;
     protected Date dob;
+    
+    SimpleDateFormat dobformat = new SimpleDateFormat("dd MMMMMMMMMM yyyy");
     
    
     /**
@@ -61,6 +64,10 @@ public class Customer
     }
     public Date getDOB()
     {
+        SimpleDateFormat formatdob = new SimpleDateFormat("dd MMMMMMMMMM yyyy");
+        System.out.println("DOB: " + formatdob.format(dob));
+        System.out.printf("%s %te %tB %tY", "DOB: ", dob, dob, dob, dob);
+        
         return dob;
     }
     
@@ -100,26 +107,32 @@ public class Customer
         this.dob = dob;
     }
 
+
     
     
    public String toString()
    { 
-       if(DatabasePesanan.getPesanan() = null)
+       if(DatabasePesanan.getPesanan(this) == null)
        {
-           System.out.println("Customer ID : " + id);
-           System.out.println("Name : " + nama);
-           System.out.println("E-Mail : " + email);
-           System.out.println("Date of Birth : " + dob);
+           return "\nCustomer ID \t: " + getID()
+           + "\nName \t\t:" + getNama()
+           + "\nE-Mail \t\t: " + getEmail()
+           + "\nDate of Birth \t: " + dobformat.format(getDOB());
         }
-        else
-        {
-           System.out.println("Customer ID : " + id);
-           System.out.println("Name : " + nama);
-           System.out.println("E-Mail : " + email);
-           System.out.println("Date of Birth : " + dob);
-           System.out.println("Booking order is in progress");
-        }
+          
         
-        return null;
-           
+        
+
+        else 
+        {
+             return "\nCustomer ID \t: " + getID()
+           + "\nName \t\t:" + getNama()
+           + "\nE-Mail \t\t: " + getEmail()
+           + "\nDate of Birth \t: " + dobformat.format(getDOB())
+           + "\nBooking Order is in progress";
+        }
+    }
 }
+  
+           
+
