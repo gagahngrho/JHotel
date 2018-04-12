@@ -48,10 +48,6 @@ public class DatabasePesanan
      * @param pesan dengan tipe data Pesanan dari class Pesanan
      * @return false
      */
-    public static boolean removePesanan(Pesanan pesan)
-    {
-        return false;
-    }
 
     /**
      * Method ini digunakan untuk mengambil pesanan.
@@ -109,4 +105,24 @@ public class DatabasePesanan
         }
         return null;
     }
+}
+
+public static boolean removePesanan(Pesanan pesan) {
+    for (Pesanan cari : PESANAN_DATABASE) {
+        if (cari.equals(pesan)) {
+            if (cari.getRoom() != null) {
+                Administrasi.pesananDibatalkan(pesan);
+            } else {
+                if (cari.getStatusAktif() == true) {
+                    cari.setStatusAktif(false);
+
+                }
+            }
+
+            PESANAN_DATABASE.remove(pesan);
+            return true;
+        }
+    }
+
+    return false;
 }
