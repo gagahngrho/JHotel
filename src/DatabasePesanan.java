@@ -1,5 +1,4 @@
-import java.util.*;
-import java.lang.*;
+import java.util.ArrayList;
 
 /**
  * Class DatabasePesanan digunakan sebagi
@@ -12,117 +11,69 @@ import java.lang.*;
 
 public class DatabasePesanan
 {
-    // Instance variable yang digunakan
-    private static ArrayList<Pesanan> PESANAN_DATABASE = new ArrayList<Pesanan>();
+    private static ArrayList<Pesanan> PESANAN_DATABASE = new ArrayList<>();
     private static int LAST_PESANAN_ID = 0;
 
-    /**
-     * Constructor dari class DatabasePesanan.
-     *
-     *
-     * @return tidak ada
-     */
-    public DatabasePesanan()
-    {
+    public static ArrayList<Pesanan> getPesananDatabase(){
+        return PESANAN_DATABASE;
     }
 
-    /**
-     * Method ini digunakan untuk menambah pesanan.
-     *
-     * @param baru dengan tipe data Pesanan dari class Pesanan
-     * @return false
-     */
-    public static boolean addPesanan(Pesanan baru)
-    {
-        if(baru.getStatusAktif()) {
-            return false;
-        } else{
+    public static int getLastPesananID() {
+        return LAST_PESANAN_ID;
+    }
+
+    public static boolean addPesanan(Pesanan baru){
+        if(getPesananAktif(baru.getPelanggan()) == null){
             PESANAN_DATABASE.add(baru);
+            LAST_PESANAN_ID = baru.getID();
             return true;
         }
+        else {
+            return false;
+        }
     }
 
-    /**
-     * Method ini digunakan untuk menghapus pesanan.
-     *
-     * @param pesan dengan tipe data Pesanan dari class Pesanan
-     * @return false
-     */
-
-    /**
-     * Method ini digunakan untuk mengambil pesanan.
-     *
-     * @param id dengan tipe data Customer dari class Customer
-     * @return null
-     */
-    public static Pesanan getPesanan(int id)
-    {
-        for(Pesanan cari : PESANAN_DATABASE){
-            if(cari.getID() == id){
-                return cari;
+    public static Pesanan getPesanan(int id){
+        for (Pesanan pesan :
+                PESANAN_DATABASE) {
+            if(pesan.getID() == id){
+                return pesan;
             }
         }
         return null;
     }
 
-    public static Pesanan getPesanan(Room kamar)
-    {
-        for(Pesanan cari : PESANAN_DATABASE){
-            if(cari.getRoom() == kamar){
-                return cari;
+    public static Pesanan getPesanan(Room kamar){
+        for (Pesanan pesan :
+                PESANAN_DATABASE) {
+            if(kamar.equals(pesan.getRoom())==true){
+                return pesan;
             }
         }
         return null;
     }
 
-    public static int getLastPesananID()
-    {
-
-    }
-
-    /**
-     * Method ini digunakan untuk mengambil database pesanan.
-     *
-     * @return null
-     */
-    public static ArrayList<Pesanan> getPesananDatabase()
-    {
-        return null;
-    }
-
-    /**
-     * Method ini digunakan untuk mengambil pesanan aktif.
-     *
-     * @param pesan dengan tipe data Pesanan dari class Pesanan
-     * @return tidak ada
-     */
-    public static Pesanan getPesananAktif(Customer pelanggan)
-    {
-        for(Pesanan cari : PESANAN_DATABASE){
-            if(cari.getStatusAktif() == true){
-                return cari;
+    public static Pesanan getPesananAktif(Customer pelanggan){
+        for (Pesanan pesan :
+                PESANAN_DATABASE) {
+            if (pesan.getStatusAktif() == true && pesan.getPelanggan().equals(pelanggan) == true){
+                return pesan;
             }
         }
         return null;
+    }
+
+    public static boolean removePesanan(Pesanan pesan){
+        for (Pesanan pesan2 :
+                PESANAN_DATABASE) {
+            if(pesan.equals(pesan2)){
+                if(pesan.getRoom() != null) Administrasi.pesananDibatalkan(pesan);
+                else if(pesan.getStatusAktif() == true) pesan.setStatusAktif(false);
+                PESANAN_DATABASE.remove(pesan2);
+                return true;
+            }
+        }
+        return false;
     }
 }
 
-public static boolean removePesanan(Pesanan pesan) {
-    for (Pesanan cari : PESANAN_DATABASE) {
-        if (cari.equals(pesan)) {
-            if (cari.getRoom() != null) {
-                Administrasi.pesananDibatalkan(pesan);
-            } else {
-                if (cari.getStatusAktif() == true) {
-                    cari.setStatusAktif(false);
-
-                }
-            }
-
-            PESANAN_DATABASE.remove(pesan);
-            return true;
-        }
-    }
-
-    return false;
-}
