@@ -134,11 +134,13 @@ public class Customer
         else
         {
             return "\nCustomer ID \t:" + getID()
-                    + "\nName \t\t:" + getNama()
+                   + "\nName \t\t:" + getNama()
                     + "\nE-Mail \t\t:" + getEmail()
                     + "\nDate of Birth \t:" + dobformat.format(getDOB())
                     + "\nBooking Order is in progress";
         }
+
+
 
     }
 
