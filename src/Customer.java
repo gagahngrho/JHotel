@@ -22,18 +22,20 @@ public class Customer
      * Ini merupakan Constructor dari Class Customer
      *
      */
-    public Customer(String nama,int year,int month, int date)
+    public Customer(String nama,int year,int month, int date, String email)
     {
         this.id = DatabaseCustomer.getLastCustomerID()+1;
         this.nama = nama;
         this.dob = new GregorianCalendar(year,month-1,date).getTime();
+        this.email = email;
     }
 
-    public Customer(String nama,Date dob)
+    public Customer(String nama,Date dob, String email)
     {
         this.id = DatabaseCustomer.getLastCustomerID()+1;
         this.nama = nama;
         this.dob = dob;
+        this.email = email;
     }
 
     //Methode Getter (Accessor) untuk class

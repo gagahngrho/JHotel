@@ -2,7 +2,7 @@
 /**
  * Write a description of class DoubleRoom here.
  *
- * @author (your name)
+ * @author Anggoro Gagah Nugroho
  * @version (a version number or a date)
  */
 public class DoubleRoom extends Room
@@ -14,9 +14,9 @@ public class DoubleRoom extends Room
     /**
      * Constructor for objects of class DoubleRoom
      */
-    DoubleRoom(Hotel hotel, String nomor_kamar, StatusKamar status_kamar)
+    DoubleRoom(Hotel hotel, String nomor_kamar)
     {
-        super(hotel, nomor_kamar,  status_kamar);
+        super(hotel, nomor_kamar);
     }
 
     /**
