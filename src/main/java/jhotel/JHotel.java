@@ -19,8 +19,27 @@ public class JHotel
      *
      * @param args argumen untuk main
      */
-    public static void main(String[] args) {
+    public static void main(String[] args)  throws RoomSudahAdaException , HotelSudahAdaException
+    {
         SpringApplication.run(JHotel.class, args);
+        Lokasi Jakarta = new Lokasi(1,2, "Mares");
+        Lokasi Depok = new Lokasi(2,3, "Margo");
+        Lokasi Bandung = new Lokasi(3,4, "Alexis");
+
+        Hotel Mares = new Hotel("Mares", Jakarta, 5);
+        DatabaseHotel.addHotel(Mares);
+        Hotel Margo = new Hotel("Margo", Depok, 5);
+        DatabaseHotel.addHotel(Margo);
+
+
+        Room A1 = new PremiumRoom(Margo, "A1");
+        DatabaseRoom.addRoom(A1);
+        Room B1 = new DoubleRoom(Margo, "B1");
+        DatabaseRoom.addRoom(B1);
+        Room C1 = new SingleRoom(Margo, "C1");
+        DatabaseRoom.addRoom(C1);
+
+
 
        /* try {
             DatabaseCustomer.addCustomer(new Customer("Gagah", 1996, 1, 9, "gagahblw@gmail.com"));

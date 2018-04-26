@@ -47,6 +47,20 @@ public class DatabaseCustomer
         return null;
     }
 
+    public static Customer getCustomerLogin(String email, String password){
+
+        for (Customer pelanggan : CUSTOMER_DATABASE)
+        {
+            if (pelanggan.getEmail() == email && pelanggan.getPassword() == password)
+            {
+                return pelanggan;
+            }
+        }
+        return null;
+    }
+
+
+
     /**
      * Merupakan metode yang akan digunakan pada link database
      * dengan customer untuk menghapus customer kepada database

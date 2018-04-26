@@ -11,10 +11,11 @@ import java.text.*;
 public class Customer
 {
     //Bagian disini menunjukan Variabel-variabel pada class Customer
-    protected int id;
-    protected String nama;
-    protected String email;
-    protected Date dob;
+    private int id;
+    private String nama;
+    private String email;
+    private Date dob;
+    private String password;
 
     SimpleDateFormat dobformat = new SimpleDateFormat("dd MMMMMMMMM yyyy");
 
@@ -23,21 +24,27 @@ public class Customer
      * Ini merupakan Constructor dari Class Customer
      *
      */
-    public Customer(String nama,int year,int month, int date, String email)
+
+
+    public Customer(String nama,int year,int month, int date, String email, String password)
     {
         this.id = DatabaseCustomer.getLastCustomerID()+1;
         this.nama = nama;
         this.dob = new GregorianCalendar(year,month-1,date).getTime();
         this.email = email;
+        this.password = password;
     }
 
-    public Customer(String nama,Date dob, String email)
+    public Customer(String nama,Date dob, String email, String password)
     {
         this.id = DatabaseCustomer.getLastCustomerID()+1;
         this.nama = nama;
         this.dob = dob;
         this.email = email;
+        this.password = password;
     }
+
+
 
     //Methode Getter (Accessor) untuk class
     /**
@@ -78,6 +85,10 @@ public class Customer
         return dob;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
     //Methode Setter (Mutator) untuk class
     /**
      * Ini merupakan Methode mutator untuk set nilai id
@@ -111,6 +122,10 @@ public class Customer
         else {
             System.out.println("Email tidak valid");
         }
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     /**
