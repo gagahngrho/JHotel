@@ -21,7 +21,7 @@ public class JHotel
      */
     public static void main(String[] args)  throws RoomSudahAdaException , HotelSudahAdaException
     {
-        SpringApplication.run(JHotel.class, args);
+
         Lokasi Jakarta = new Lokasi(1,2, "Mares");
         Lokasi Depok = new Lokasi(2,3, "Margo");
         Lokasi Bandung = new Lokasi(3,4, "Alexis");
@@ -39,7 +39,7 @@ public class JHotel
         Room C1 = new SingleRoom(Margo, "C1");
         DatabaseRoom.addRoom(C1);
 
-
+        SpringApplication.run(JHotel.class, args);
 
        /* try {
             DatabaseCustomer.addCustomer(new Customer("Gagah", 1996, 1, 9, "gagahblw@gmail.com"));

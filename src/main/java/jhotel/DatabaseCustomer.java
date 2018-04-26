@@ -51,7 +51,9 @@ public class DatabaseCustomer
 
         for (Customer pelanggan : CUSTOMER_DATABASE)
         {
-            if (pelanggan.getEmail() == email && pelanggan.getPassword() == password)
+            if (pelanggan.getEmail().compareTo(email) == 0 && pelanggan.getPassword().compareTo(password) == 0){
+                return pelanggan;
+            }
             {
                 return pelanggan;
             }
