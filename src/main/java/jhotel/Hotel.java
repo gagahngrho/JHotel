@@ -3,8 +3,9 @@ package jhotel;
  * Class Hotel 
  * 
  * @author Anggoro Gagah Nugroho
- * @version 1/3/2018
+ * @version 29/5/2018
  */
+
 public class Hotel
 {
     //Bagian disini menunjukan Variabel variabel pada class Hotel
@@ -102,9 +103,9 @@ public class Hotel
      * Merupakan Metod yang akan digunakan untuk mengprint data.
      */
     public String toString(){
-        return "Nama Hotel \t\t:" + getNama()
-                +"\nBintang Hotel \t\t:" + getBintang()
-                + "\nLokasi Hotel \t\t:" + getLokasi().getDeskripsi();
+        return "Hotel: " + getNama()
+                +"\tBintang: " + getBintang()
+                + "\tLokasi: " + getLokasi().getDeskripsi()+"\n";
     }
 
 

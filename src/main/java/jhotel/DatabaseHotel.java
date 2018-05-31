@@ -1,10 +1,10 @@
 package jhotel;
 import java.util.ArrayList;
 /**
- * Write a description of class DatabaseHotel here.
+ * Ini merupakan class untuk database hotel
  *
  * @author Anggoro Gagah Nugroho
- * @version 1.0
+ * @version 29/5/2018
  */
 public class DatabaseHotel
 {
@@ -12,10 +12,21 @@ public class DatabaseHotel
     private static ArrayList<Hotel> HOTEL_DATABASE = new ArrayList<>();
     private static int LAST_HOTEL_ID = 0;
 
-    //Methode bagian sini akan dibenarkan, sampai modul integrasi database dengan java
+    /**
+     * method untuk membuat arraylist berisi hotel
+     *
+     * @return HOTEL_DATABASE
+     */
     public static ArrayList<Hotel> getHotelDatabase() {
+
         return HOTEL_DATABASE;
     }
+
+    /**
+     * untuk mendapatkan ID dari hotel terakhir
+     *
+     * @return LAST_HOTEL_ID
+     */
 
     public static int getLastHotelID() {
         return LAST_HOTEL_ID;
@@ -28,7 +39,7 @@ public class DatabaseHotel
     public static boolean addHotel(Hotel baru) throws HotelSudahAdaException{
         for (Hotel hotel :
                 HOTEL_DATABASE) {
-            if(hotel.getID() == baru.getID() || (hotel.getLokasi().equals(baru.getLokasi()) && hotel.getNama().compareTo(baru.getNama())==0)){
+            if(hotel.getID() == baru.getID() || ((hotel.getLokasi().getX() == baru.getLokasi().getX() && hotel.getLokasi().getY() == baru.getLokasi().getY()) && (hotel.getLokasi().getDeskripsi().compareTo(baru.getLokasi().getDeskripsi()) == 0)  && hotel.getNama().compareTo(baru.getNama())==0)){
                 throw new HotelSudahAdaException(hotel);
             }
         }
@@ -36,7 +47,12 @@ public class DatabaseHotel
         LAST_HOTEL_ID = baru.getID();
         return true;
     }
-
+    /**
+     * untuk mendapatkan hotel dengan id yang ditentukan
+     *
+     * @param id menentukan id hotel
+     * @return hotel
+     */
     public static Hotel getHotel(int id){
         for (Hotel hotel :
                 HOTEL_DATABASE) {

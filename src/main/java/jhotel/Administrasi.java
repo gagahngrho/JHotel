@@ -1,12 +1,12 @@
 package jhotel;
 
-import jdk.net.SocketFlow;
+
 
 /**
  * Class Administrasi 
  *
  * @author Anggoro Gagah Nugroho
- * @version 8/3/2018
+ * @version 29/5/2018
  */
 public class Administrasi
 {
@@ -24,23 +24,16 @@ public class Administrasi
      * Methode administratif untuk memproses ruangan yang akan di assign
      * kepada kamar tertentu
      */
-    public static void pesananDitugaskan(Pesanan pesan, Room kamar) {
-        if (kamar.getStatusKamar() == StatusKamar.VACANT)
-        {
+    public static void pesananDitugaskan(Pesanan pesan, Room kamar)
+    {
+        if(kamar.getStatusKamar().equals(StatusKamar.VACANT)) {
             pesan.setStatusSelesai(false);
             pesan.setStatusDiproses(true);
             pesan.setRoom(kamar);
-            kamar.setStatusKamar(StatusKamar.BOOKED);
-            //DatabaseRoom.getRoom(kamar.getHotel(),kamar.getNomorKamar()).setStatusKamar(StatusKamar.BOOKED);
-
+            DatabaseRoom.getRoom(kamar.getHotel(), kamar.getNomorKamar()).setStatusKamar(StatusKamar.BOOKED);
         }
-        else
-
-            pesan.setStatusAktif(false);
-        }
-
-
-
+        else pesan.setStatusAktif(false);
+    }
 
 
     /**
@@ -48,12 +41,11 @@ public class Administrasi
      */
     public static void pesananDibatalkan(Room kamar)
     {
-    //    Pesanan pesan = DatabasePesanan.getPesanan(kamar);
-      //  if(pesan != null) {
-        //    pesan.setStatusSelesai(false);
-          //  pesan.setStatusDiproses(false);
-
-        //}
+        Pesanan pesan = DatabasePesanan.getPesananAktif(kamar);
+        if(pesan != null) {
+            pesan.setStatusSelesai(false);
+            pesan.setStatusDiproses(false);
+        }
         DatabaseRoom.getRoom(kamar.getHotel(), kamar.getNomorKamar()).setStatusKamar(StatusKamar.VACANT);
 
     }
@@ -62,12 +54,11 @@ public class Administrasi
      * Methode administratif untuk mengubah status pesanan dan status room dan unlink
      */
     public static void pesananSelesai(Room kamar) {
-     //   Pesanan pesan = DatabasePesanan.getPesanan(kamar);
-       // if(pesan != null) {
-         //   pesan.setStatusSelesai(true);
-           // pesan.setStatusDiproses(false);
-
-        //}
+        Pesanan pesan = DatabasePesanan.getPesananAktif(kamar);
+        if(pesan != null) {
+            pesan.setStatusSelesai(true);
+            pesan.setStatusDiproses(false);
+        }
         DatabaseRoom.getRoom(kamar.getHotel(), kamar.getNomorKamar()).setStatusKamar(StatusKamar.VACANT);
     }
 
@@ -82,7 +73,6 @@ public class Administrasi
         pesan.setStatusSelesai(false);
         pesan.setStatusDiproses(false);
         pesan.setStatusAktif(false);
-
     }
 
     /**
@@ -96,7 +86,6 @@ public class Administrasi
         pesan.setStatusSelesai(true);
         pesan.setStatusDiproses(false);
         pesan.setStatusAktif(false);
-
     }
 
 }

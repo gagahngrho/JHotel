@@ -3,7 +3,7 @@ package jhotel;
  * Class Customer
  *
  * @author Anggoro Gagah Nugroho
- * @version 1/3/2018
+ * @version 29/5/2018
  */
 import java.util.*;
 import java.text.*;
@@ -17,6 +17,7 @@ public class Customer
     private Date dob;
     private String password;
 
+
     SimpleDateFormat dobformat = new SimpleDateFormat("dd MMMMMMMMM yyyy");
 
     //Method Constructor dari Class
@@ -24,9 +25,7 @@ public class Customer
      * Ini merupakan Constructor dari Class Customer
      *
      */
-
-
-    public Customer(String nama,int year,int month, int date, String email, String password)
+    public Customer(String nama,int year,int month, int date,String email,String password)
     {
         this.id = DatabaseCustomer.getLastCustomerID()+1;
         this.nama = nama;
@@ -35,7 +34,14 @@ public class Customer
         this.password = password;
     }
 
-    public Customer(String nama,Date dob, String email, String password)
+    /**
+     * Overloading Constructor for objects of class Customer.
+     *
+     * @param nama berisi nama customer.
+     * @param dob berisi objek Date.
+     */
+
+    public Customer(String nama,Date dob,String email,String password)
     {
         this.id = DatabaseCustomer.getLastCustomerID()+1;
         this.nama = nama;
@@ -43,8 +49,6 @@ public class Customer
         this.email = email;
         this.password = password;
     }
-
-
 
     //Methode Getter (Accessor) untuk class
     /**
@@ -85,10 +89,6 @@ public class Customer
         return dob;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
     //Methode Setter (Mutator) untuk class
     /**
      * Ini merupakan Methode mutator untuk set nilai id
@@ -124,10 +124,6 @@ public class Customer
         }
     }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     /**
      * Ini merupakan Methode untuk mengubah DOB dari pelanggan
      *
@@ -137,29 +133,35 @@ public class Customer
         this.dob = dob;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
     //Methode print semua data
     /**
-     * Merupakan Metod yang akan digunakan untuk mengprint data.
+     * Merupakan Method yang akan digunakan untuk mengprint data.
      */
     public String toString() {
         if(DatabasePesanan.getPesananAktif(this)==null)
         {
-            return "\nCustomer ID \t:" + getID()
-                    + "\nName \t\t:" + getNama()
-                    + "\nE-Mail \t\t:" + getEmail()
-                    + "\nDate of Birth \t:" + dobformat.format(getDOB());
+            return "ID: " + getID()
+                    + "\tName: " + getNama()
+                    + "\tE-Mail: " + getEmail()
+                    + "\tDoB: " + dobformat.format(getDOB())
+                    + "\tBooking Order is in progress\n";
         }
         else
         {
-            return "\nCustomer ID \t:" + getID()
-                   + "\nName \t\t:" + getNama()
-                    + "\nE-Mail \t\t:" + getEmail()
-                    + "\nDate of Birth \t:" + dobformat.format(getDOB())
-                    + "\nBooking Order is in progress";
+            return "ID: " + getID()
+                    + "\tName: " + getNama()
+                    + "\tE-Mail: " + getEmail()
+                    + "\tDoB: " + dobformat.format(getDOB()) + "\n";
         }
-
-
-
     }
 
 }

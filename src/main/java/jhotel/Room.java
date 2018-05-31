@@ -3,7 +3,7 @@ package jhotel;
  * Class untuk objek objek Room
  *
  * @author Anggoro Gagah Nugroho
- * @version 8/3/2018
+ * @version 29/5/2018
  */
 public abstract class Room
 {
@@ -116,18 +116,18 @@ public abstract class Room
     {
         if(DatabasePesanan.getPesananAktif(this) == null)
         {
-            return "\nNama Hotel \t\t:" + getHotel().getNama()
-                    + "\nTipe Kamar \t\t:" + getTipeKamar()
-                    + "\nHarga \t\t:" + getDailyTariff()
-                    + "\nStatus Kamar \t\t:" + getStatusKamar().toString();
+            return "Hotel: " + getHotel().getNama()
+                    + "\tTipeKamar: " + getTipeKamar()
+                    + "\tHarga: " + getDailyTariff()
+                    + "\tStatusKamar:" + getStatusKamar().toString() + "\n";
         }
         else
         {
-            return "\nNama Hotel \t\t:" + getHotel().getNama()
-                    + "\nTipe Kamar \t\t:" + getTipeKamar()
-                    + "\nHarga \t\t:" + getDailyTariff()
-                    + "\nStatus Kamar \t\t:" + getStatusKamar().toString()
-                    + "Pelanggan \t\t:" + DatabasePesanan.getPesananAktif(this).getPelanggan().getNama();
+            return "Hotel: " + getHotel().getNama()
+                    + "\tTipeKamar: " + getTipeKamar()
+                    + "\tHarga:" + getDailyTariff()
+                    + "\tStatus Kamar: " + getStatusKamar().toString()
+                    + "Pelanggan: " + DatabasePesanan.getPesananAktif(this).getPelanggan().getNama() + "\n";
         }
     }
 

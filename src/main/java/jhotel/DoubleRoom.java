@@ -1,41 +1,61 @@
 package jhotel;
 /**
- * Write a description of class DoubleRoom here.
+ * Class PremiumRoom untuk tipe room double.
  *
  * @author Anggoro Gagah Nugroho
- * @version (a version number or a date)
+ * @version 29/5/2018
  */
 public class DoubleRoom extends Room
-
 {
+    // instance variables - replace the example below with your own
+    private static TipeKamar TIPE_KAMAR = TipeKamar.DOUBLE;
     private Customer customer2;
-    TipeKamar TIPE_KAMAR = TipeKamar.DOUBLE;
 
     /**
-     * Constructor for objects of class DoubleRoom
+     * Constructor for objects of class SingleRoom
      */
-    DoubleRoom(Hotel hotel, String nomor_kamar)
-    {
+    public DoubleRoom(Hotel hotel,String nomor_kamar) {
+        // initialise instance variables
         super(hotel, nomor_kamar);
+        setDailyTariff(75000);
     }
 
     /**
-     * An example of a method - replace this comment with your own
+     * Method accessor untuk tipe kamar
      *
-     * @param  y  a sample parameter for a method
-     * @return    the sum of x and y
+     * @return TIPE_KAMAR mengembalikkan tipekamar
      */
-    public Customer getCustomer2()
-    {
-        return customer2;
-    }
-    public TipeKamar getTipeKamar()
-    {
+    public TipeKamar getTipeKamar(){
+
         return TIPE_KAMAR;
     }
-    public void setCustomer2(Customer customer2)
-    {
+
+    /**
+     * Method accessor untuk Customer 2
+     *
+     * @return customer2 mengembalikkan customer kedua dari doubleroom
+     */
+    public Customer getCustomer2(){
+        return customer2;
+    }
+
+    /**
+     * Method mutator untuk Customer 2
+     *
+     * @param customer2 mengset nilai customer2
+     */
+    public void setCustomer2(Customer customer2){
+
         this.customer2 = customer2;
     }
-      
+    /**
+     * menentukan daily tarif untuk class DoubleRoom
+     *
+     * @param dailytariff nilai daily tariff
+     */
+    public void setDailyTariff(double dailytariff)
+    {
+        dailyTariff = dailytariff;
+    }
 }
+

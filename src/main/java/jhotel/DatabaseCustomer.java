@@ -5,7 +5,7 @@ import java.util.ArrayList;
  * Class DatabaseCustomer 
  *
  * @author Anggoro Gagah Nugroho
- * @version 1/3/2018
+ * @version 29/5/2018
  */
 public class DatabaseCustomer
 {
@@ -18,19 +18,25 @@ public class DatabaseCustomer
         return CUSTOMER_DATABASE;
     }
 
+    /**
+     * untuk mendapatkan ID dari customer terakhir
+     *
+     * @return LAST_CUSTOMER_ID
+     */
+
     public static int getLastCustomerID() {
         return LAST_CUSTOMER_ID;
     }
 
 
     /**
-     * Merupakan metode yang akan digunakan pada link database
+     * Merupakan method yang akan digunakan pada link database
      * dengan customer untuk menambah customer kepada database
      */
     public static boolean addCustomer(Customer baru) throws PelangganSudahAdaException {
         for (Customer cust :
                 CUSTOMER_DATABASE) {
-            if(cust.getID() == baru.getID() || cust.getEmail().equals(baru.getEmail())){
+            if(cust.getID() == baru.getID() || cust.getEmail().compareTo(baru.getEmail()) == 0){
                 throw new PelangganSudahAdaException(baru);
             }
         }
@@ -39,6 +45,11 @@ public class DatabaseCustomer
         return true;
     }
 
+    /**
+     * untuk mendapatkan ID dari customer terakhir
+     *
+     * @return LAST_CUSTOMER_ID
+     */
     public static Customer getCustomer(int id){
         for (Customer cust :
                 CUSTOMER_DATABASE) {
@@ -47,21 +58,22 @@ public class DatabaseCustomer
         return null;
     }
 
+    /**
+     * untuk mendapatkan customer yang login menggunakan email dan passwordnya.
+     *
+     * @param email menentukan nilai email
+     * @param password menentukan nilai password
+     * @return customer
+     */
     public static Customer getCustomerLogin(String email, String password){
-
-        for (Customer pelanggan : CUSTOMER_DATABASE)
-        {
-            if (pelanggan.getEmail().compareTo(email) == 0 && pelanggan.getPassword().compareTo(password) == 0){
-                return pelanggan;
-            }
-            {
-                return pelanggan;
+        for (Customer cust :
+                CUSTOMER_DATABASE) {
+            if (cust.getEmail().compareTo(email) == 0 && cust.getPassword().compareTo(password) == 0){
+                return cust;
             }
         }
         return null;
     }
-
-
 
     /**
      * Merupakan metode yang akan digunakan pada link database

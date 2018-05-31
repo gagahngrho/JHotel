@@ -1,45 +1,60 @@
 package jhotel;
 
-/* Class Hotel
-        *
-        * @author Anggoro Gagah Nugroho
-        * @version 1/3/2018
-        */
+/**
+ * class JHotel sebagai class utama.
+ *
+ * @author Anggoro Gagah Nugroho
+ * @version 29/5/2018
+ */
 
-        import java.util.*;
 
-        import org.springframework.boot.SpringApplication;
-        import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import java.util.*;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class JHotel
 {
     /**
-     * Merupakan metode main dari Applikasi JHotel
+     * Main method untuk class JHotel.
      *
-     * @param args argumen untuk main
+     * @param args argumen
      */
-    public static void main(String[] args)  throws RoomSudahAdaException , HotelSudahAdaException
-    {
+    public static void main(String[] args) {
+        Hotel hotel1 = new Hotel("JHotel Alexis",new Lokasi(30,30,"Paradise"),5);
+        //menambahkan objek hotel ke database
+        try{
+            DatabaseHotel.addHotel(hotel1);
+        } catch(HotelSudahAdaException e){
+            System.out.println("Hotel ada");
+        }
 
-        Lokasi Jakarta = new Lokasi(1,2, "Mares");
-        Lokasi Depok = new Lokasi(2,3, "Margo");
-        Lokasi Bandung = new Lokasi(3,4, "Alexis");
+        //menambahkan objek room ke database
+        try{
+            Room room1 = new SingleRoom(hotel1,"S11");
+            DatabaseRoom.addRoom(room1);
+            Room room2 = new DoubleRoom(hotel1,"D22");
+            DatabaseRoom.addRoom(room2);
+            Room room3 = new PremiumRoom(hotel1,"P33");
+            DatabaseRoom.addRoom(room3);
 
-        Hotel Mares = new Hotel("Mares", Jakarta, 5);
-        DatabaseHotel.addHotel(Mares);
-        Hotel Margo = new Hotel("Margo", Depok, 5);
-        DatabaseHotel.addHotel(Margo);
+
+        } catch(RoomSudahAdaException e){
+            e.getPesan();
+        }
+
+        SpringApplication.run(JHotel.class,args);
+    }
 
 
-        Room A1 = new PremiumRoom(Margo, "A1");
-        DatabaseRoom.addRoom(A1);
-        Room B1 = new DoubleRoom(Margo, "B1");
-        DatabaseRoom.addRoom(B1);
-        Room C1 = new SingleRoom(Margo, "C1");
-        DatabaseRoom.addRoom(C1);
+    /**
+     * Constructor dari Class JHotel
+     */
+    public JHotel(){
+    }
+}
 
-        SpringApplication.run(JHotel.class, args);
 
        /* try {
             DatabaseCustomer.addCustomer(new Customer("Gagah", 1996, 1, 9, "gagahblw@gmail.com"));
@@ -151,4 +166,4 @@ public class JHotel
      * Constructor dari Class JHotel
      */
 
-}}
+
